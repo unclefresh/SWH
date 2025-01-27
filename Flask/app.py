@@ -25,8 +25,8 @@ def solve_world_hunger():
     # Increment the feed event counter each time the endpoint is hit
     feed_event_counter.inc()
 
-    # Generate a random number between 10 and 1,000,000 for people fed
-    people_fed = random.randint(10, 1000000)
+    # Generate a random number between 10 and 10,000 for people fed
+    people_fed = random.randint(10, 10000)
 
     # Update the hunger metric with the number of people fed
     hunger_metric.set(people_fed)
@@ -38,12 +38,12 @@ def solve_world_hunger():
 
 @app.route("/metrics")
 def metrics():
-	from prometheus_client import generate_latest
-    	return generate_latest()
+    from prometheus_client import generate_latest
+    return generate_latest()
 
 # Start the server
 if __name__ == '__main__':
-    # Start http server for Prometheus metrics on port 8002
-    start_http_server(8002)
+    # Start http server for Prometheus metrics on port 8000
+    start_http_server(8000)
     app.run(debug=True, host='0.0.0.0', port=8000)
 

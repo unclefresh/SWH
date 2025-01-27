@@ -15,8 +15,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Expose the port the app runs on
 EXPOSE 8000
 
-# Expose the port for Prometheus metrics
-EXPOSE 8002
-
 # Run the application with Gunicorn
 CMD ["gunicorn", "-b", "0.0.0.0:8000", "--timeout", "120", "app:app"]
