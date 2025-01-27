@@ -31,16 +31,19 @@ def solve_world_hunger():
     # Update the hunger metric with the number of people fed
     hunger_metric.set(people_fed)
 
-    # Update the total number of people impacted (this keeps a cumulative count)
+    # Update the total number of people impacted
     people_impacted_gauge.inc(people_fed)
 
-    # Return the result in JSON
     return jsonify({'status': 'Number of people fed worldwide (allegedly)', 'people_fed': people_fed}), 200
+
+@app.route("/metrics")
+def metrics():
+	from prometheus_client import generate_latest
+    	return generate_latest()
 
 # Start the server
 if __name__ == '__main__':
-    # Start Prometheus metrics server on port 8002
+    # Start http server for Prometheus metrics on port 8002
     start_http_server(8002)
-
     app.run(debug=True, host='0.0.0.0', port=8000)
 

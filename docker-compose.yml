@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   flask-app:
-    build: ./flask  # Path to flask app
+    build: ./flask  # Specifying Dockerfile is unnecessary as it defaults to that
     container_name: flask-app
     ports:
       - "127.0.0.1:8000:8000"
@@ -13,7 +13,7 @@ services:
   prometheus:
     build:
       context: ./prom  # Path to the Prometheus Dockerfile
-      dockerfile: Dockerfile.prometheus
+      dockerfile: Dockerfile.prometheus # Need to specify the actual name here
     container_name: prometheus
     ports:
       - "127.0.0.1:9090:9090"
