@@ -6,7 +6,6 @@ services:
     container_name: flask-app
     ports:
       - "127.0.0.1:8000:8000"
-      - "127.0.0.1:8002:8002"
     networks:
       - flask-prometheus-network
 
