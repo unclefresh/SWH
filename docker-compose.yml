@@ -1,0 +1,27 @@
+version: '3.7'
+
+services:
+  flask-app:
+    build: ./flask  # Path to flask app
+    container_name: flask-app
+    ports:
+      - "127.0.0.1:8000:8000"
+      - "127.0.0.1:8002:8002"
+    networks:
+      - flask-prometheus-network
+
+  prometheus:
+    build:
+      context: ./prom  # Path to the Prometheus Dockerfile
+      dockerfile: Dockerfile.prometheus
+    container_name: prometheus
+    ports:
+      - "127.0.0.1:9090:9090"
+    networks:
+      - flask-prometheus-network
+    volumes:
+      - ./prom/prometheus.yml:/etc/prometheus/prometheus.yml  # Mount Prometheus config
+
+networks:
+  flask-prometheus-network:
+    driver: bridge
