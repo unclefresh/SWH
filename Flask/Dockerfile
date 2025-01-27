@@ -1,4 +1,4 @@
-FROM python:3.9-slim
+FROM python:3.9-buster
 
 # Install curl
 RUN apt-get update && apt-get install -y curl
@@ -15,5 +15,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Expose the port the app runs on
 EXPOSE 8000
 
+# Expose the port for Prometheus metrics
+EXPOSE 8002
+
 # Run the application with Gunicorn
-CMD ["gunicorn", "-b", "0.0.0.0:8000", "--timeout", "600", "app:app"]
+CMD ["gunicorn", "-b", "0.0.0.0:8000", "--timeout", "120", "app:app"]
