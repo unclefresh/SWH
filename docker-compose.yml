@@ -17,7 +17,7 @@ services:
     networks:
       - flask-prometheus-network
     volumes:
-      - ./prom/prometheus.yml:/etc/prometheus/prometheus.yml  # Mount Prometheus config
+      - ./prom/prometheus.yml:/etc/prometheus/prometheus.yml
 
   grafana:
     image: grafana/grafana:latest
@@ -28,7 +28,20 @@ services:
       - flask-prometheus-network
     depends_on:
       - prometheus
+    environment:
+      - GF_SECURITY_ADMIN_USER=${GF_SECURITY_ADMIN_USER}
+      - GF_SECURITY_ADMIN_PASSWORD=${GF_SECURITY_ADMIN_PASSWORD}
+    volumes:
+      - grafana-storage:/var/lib/grafana
 
 networks:
   flask-prometheus-network:
     driver: bridge
+
+volumes:
+  grafana-storage:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./grafana-storage
+      o: bind
