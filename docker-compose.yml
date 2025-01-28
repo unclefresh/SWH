@@ -1,5 +1,3 @@
-version: '3.7'
-
 services:
   flask-app:
     build: ./flask  # Specifying Dockerfile is unnecessary as it defaults to that
@@ -20,6 +18,16 @@ services:
       - flask-prometheus-network
     volumes:
       - ./prom/prometheus.yml:/etc/prometheus/prometheus.yml  # Mount Prometheus config
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "127.0.0.1:3000:3000"
+    networks:
+      - flask-prometheus-network
+    depends_on:
+      - prometheus
 
 networks:
   flask-prometheus-network:
