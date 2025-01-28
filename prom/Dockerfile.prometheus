@@ -1,9 +1,6 @@
 # Start from the official Prometheus image
 FROM prom/prometheus
 
-# Install curl
-RUN apt-get update && apt-get install -y curl
-
 # Set the Prometheus configuration file
 COPY prometheus.yml /etc/prometheus/prometheus.yml
 
