@@ -26,5 +26,5 @@ docker-compose up --build -d
 ```
 This will:
 
-*Build the necessary Docker images.
-*Start the services defined in the docker-compose.yml file in detached mode (-d).
+* Build the necessary Docker images.
+* Start the services defined in the docker-compose.yml file in detached mode (-d).
