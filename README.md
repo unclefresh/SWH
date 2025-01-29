@@ -15,6 +15,7 @@ First, clone the repository to your local machine:
 git clone https://github.com/unclefresh/SWH
 cd SWH
 ```
+
 ### 2. Add the .env file to your project directory
 You should have received a securely sent .env file. Place this .env file in the root directory of the project (same directory as docker-compose.yml). This file contains sensitive environment variables required for the application.
 
@@ -24,6 +25,7 @@ Once Docker is installed and the .env file is in place, run the following comman
 ```
 docker-compose up --build -d
 ```
+
 This will:
 
 * Build the necessary Docker images.
@@ -46,7 +48,8 @@ This page will display a random number of people fed between 10 and 10000. The n
 To view metrics, including the gauge for the number of people fed and the feed event counter, go to:
 
 * localhost:8000/metrics
-This page will show Prometheus-compatible metrics. Verify the number of times a feed event was created (the number of times you refreshed the /solve_world_hunger endpoint)
+This page will show Prometheus-compatible metrics. Verify the number of times a feed event was created. (the number of times you refreshed the /solve_world_hunger endpoint)
+
 You can also check the total number of people fed from all events you created.
 
 #### Prometheus
@@ -60,4 +63,17 @@ To log into Grafana and view the dashboards, navigate to:
 
 * localhost:3000
 You should automatically be logged in with the username and password stored in the .env file that was referenced by the docker-compose file.
+
 This will give you access to the Grafana dashboard, where you can visualize the metrics being scraped by Prometheus. (need to update when applying AWS)
+
+### 5. Stopping the Services
+When you’re done, you can stop the services with:
+
+```
+docker-compose down
+```
+
+### Troubleshooting
+* If Docker is not working properly: Ensure Docker is running and that you're using the correct version. Run ```docker --version to check.
+```
+* If you cannot access the services: Check if Docker is running correctly using ```docker ps ```to list running containers. Ensure no other applications are using ports 8000, 9090, or 3000 on your machine.
