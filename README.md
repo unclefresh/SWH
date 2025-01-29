@@ -14,4 +14,5 @@ First, clone the repository to your local machine:
 ```bash
 git clone https://github.com/unclefresh/SWH
 cd SWH
-
+```
+### 2. Add the .env file to your project directory
