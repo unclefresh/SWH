@@ -74,13 +74,12 @@ docker-compose down
 ```
 
 ### Troubleshooting
-* If Docker is not working properly: Ensure Docker is running and that you're using the correct version. Run
+* If Docker is not working properly: Ensure Docker is running and that you're using the correct version. Run the following to check:
 ```
 docker --version
 ```
-to check.
-* If you cannot access the services: Check if Docker is running correctly using
+* If you cannot access the services: Check if Docker is running correctly using the command below to list running containers.
 ```
 docker ps
 ```
-to list running containers. Ensure no other applications are using ports 8000, 9090, or 3000 on your machine.
+* Ensure no other applications are using ports 8000, 9090, or 3000 on your machine.
