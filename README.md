@@ -1,7 +1,7 @@
 # Solve World Hunger (SWH) Project
 
 ## Overview
-This project is designed to simulate solving world hunger by feeding a random number of people each time a page is reloaded. It uses Docker to deploy various services, including a Flask app, Prometheus for monitoring, and Grafana for visualizing the data. 
+This project is a DevOps test designed to simulate solving world hunger by feeding a random number of people each time an endpoint is reloaded. It uses Docker to deploy various services, including a Flask app, Prometheus for monitoring, and Grafana for visualizing the data. 
 
 ## Requirements
 - Docker (installed locally)
