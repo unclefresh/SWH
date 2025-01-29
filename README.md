@@ -83,3 +83,9 @@ docker --version
 docker ps
 ```
 * Ensure no other applications are using ports 8000, 9090, or 3000 on your machine.
+
+### Contributing
+Feel free to open issues or create pull requests to contribute to this project.
+
+### License
+This project is licensed under the MIT License.
