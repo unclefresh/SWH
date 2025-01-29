@@ -13,6 +13,9 @@ First, clone the repository to your local machine:
 
 ```
 git clone https://github.com/unclefresh/SWH
+```
+* Then navigate to the project folders directory
+```
 cd SWH
 ```
 
