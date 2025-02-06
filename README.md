@@ -65,9 +65,10 @@ You should see the Prometheus interface, where you can query and confirm that it
 To log into Grafana and view the dashboards, navigate to:
 
 * localhost:3000
-You should automatically be logged in with the username and password stored in the .env file that was referenced by the docker-compose file.
+You should automatically be logged in with the username and password stored in the .env file referenced by the docker-compose file.
 
-This will give you access to the Grafana dashboard, where you can visualize the metrics being scraped by Prometheus. (need to update when applying AWS)
+This will give you access to the Grafana dashboard, where you can visualize the metrics being scraped by Prometheus. 
+Known exception, the full state of Grafana isn't maintained as persistent storage, so dashboards do not save between Docker rebuilds
 
 ### 5. Stopping the Services
 When you’re done, you can stop the services with:
@@ -81,7 +82,7 @@ docker-compose down
 ```
 docker --version
 ```
-* If you cannot access the services: Check if Docker is running correctly using the command below to list running containers.
+* If you cannot access the services: Check if Docker runs correctly using the command below to list running containers.
 ```
 docker ps
 ```
